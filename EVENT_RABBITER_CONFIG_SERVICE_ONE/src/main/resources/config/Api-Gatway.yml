@@ -46,7 +46,7 @@ spring:
             - Path=/api/v1/user/**
           filters:
             - AuthenticationFilter
-            -
+
 
         - id: event-service
           uri: lb://EVENT-SERVICE
@@ -54,3 +54,17 @@ spring:
             - Path=/api/v1/event-create-booking/**
           filters:
             - AuthenticationFilter
+
+        - id: chat-notification-service
+          uri: lb://CHAT-NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api/v1/notification-chat/**
+          filters:
+            - AuthenticationFilter
+
+#        - id: nest-service-route
+#          uri: lb://CHAT_SERVICE_NEXT
+#          predicates:
+#            - Path=/nest/**
+#          filters:
+#            - AuthenticationFilter
